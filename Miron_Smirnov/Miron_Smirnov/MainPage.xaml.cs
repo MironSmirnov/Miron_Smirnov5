@@ -10,43 +10,52 @@ using Xamarin.Forms;
 
 namespace Miron_Smirnov
 {
-    public partial class MainPage : ContentPage
+    public partial class tunniplaan : ContentPage
     {
-        Label Russkii;
-        public MainPage()
+        BoxView box;
+        Label lbl;
+        Frame frm, frm2;
+        public tunniplaan()
 
         {
             Grid grid = new Grid();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 3; i++)
             {
                 grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
             }
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 4; i++)
             {
                 grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
             }
             {
-                BackgroundColor = Color.LightBlue;
+                lbl = new Label { BackgroundColor = Color.LimeGreen, Text = "русский и литература", FontSize = 10 };
+                grid.Children.Add(lbl, 0, 0);
+                lbl = new Label { BackgroundColor = Color.LimeGreen, Text = "русский и литература", FontSize = 10 };
+                grid.Children.Add(lbl, 0, 1);
+                lbl = new Label { BackgroundColor = Color.LimeGreen, Text = "русский и литература", FontSize = 10 };
+                grid.Children.Add(lbl, 0, 2);
+                lbl = new Label { BackgroundColor = Color.LimeGreen, Text = "русский и литература", FontSize = 10 };
+                grid.Children.Add(lbl, 0, 3);
+                lbl = new Label { BackgroundColor = Color.LimeGreen, Text = "русский и литература", FontSize = 10 };
+                grid.Children.Add(lbl, 0, 4);
+                lbl = new Label { BackgroundColor = Color.LimeGreen, Text = "русский и литература", FontSize = 10 };
+                grid.Children.Add(lbl, 0, 5);
+                lbl = new Label { BackgroundColor = Color.LimeGreen, Text = "русский и литература", FontSize = 10 };
+                grid.Children.Add(lbl, 0, 6);
+                lbl = new Label { BackgroundColor = Color.LimeGreen, Text = "русский и литература", FontSize = 10 };
+                frm = new Frame { BorderColor = BackgroundColor = Color.LightGreen };
+                grid.Children.Add(frm, 1, 2);
+                frm2 = new Frame
+                {
+                    BackgroundColor = Color.White,
+                    BorderColor = Color.White,
+                    CornerRadius = 50,
+                    Opacity = 0.5
+                };
+                grid.Children.Add(frm2, 3, 3);
+                Grid.SetRowSpan(frm2, 2);
+                Content = grid;
             }
-            //Понедельник Русский язык. 
-            Russkii = new Label { HorizontalOptions = LayoutOptions.Center, BackgroundColor = Color.LightGreen, Text = "Русский и литература", FontSize = 10 };
-            grid.Children.Add(Russkii, 2, 1);
-            Grid.SetColumnSpan(Russkii, 2);
-            var tap = new TapGestureRecognizer();
-            tap.Tapped += (s, e) =>
-            {
-                Russkii = (Label)s;
-                MoreInfo();
-            };
-
-            Russkii.GestureRecognizers.Add(tap);
-            Content = grid;
-
         }
-        public async void MoreInfo()
-        {
-            await DisplayAlert("Подробная информация", "Кабинет B221, Людмила Михайловна", "Закрыть");
-        }
-
     }
 }

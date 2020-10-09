@@ -10,7 +10,7 @@ namespace Miron_Smirnov
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+			MainPage = new tunniplaan();
 		}
 
 		protected override void OnStart()
